@@ -37,6 +37,17 @@ steps:
     agents:
       queue: 't2medium'
 
+  - label: ":python: 3.6 GPU"
+    command: ".buildkite/steps/test-gpu.sh"
+    plugins:
+      docker#v3.2.0:
+        image: "python:3.6-slim"
+        environment:
+          - PYTHONDONTWRITEBYTECODE=1
+    agents:
+      queue: 't2medium'
+
+
   - label: ":python-black: format"
     plugins:
       docker#v3.2.0:
